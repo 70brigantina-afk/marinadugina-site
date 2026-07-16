@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Host: marinadugina.ru
+Sitemap: https://marinadugina.ru/sitemap.xml
