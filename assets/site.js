@@ -18,4 +18,8 @@
     nav.querySelectorAll('a').forEach(function(link){link.addEventListener('click',closeMenu);});
     window.addEventListener('resize',function(){if(window.innerWidth>980)closeMenu();});
   }
+  const whatsappLinks=document.querySelectorAll('[data-whatsapp-link]');
+  const mobileDevice=(navigator.userAgentData&&navigator.userAgentData.mobile)||/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const whatsappUrl=mobileDevice?'whatsapp://send?phone=79208433369':'https://web.whatsapp.com/send?phone=79208433369';
+  whatsappLinks.forEach(function(link){link.setAttribute('href',whatsappUrl);});
 })();
