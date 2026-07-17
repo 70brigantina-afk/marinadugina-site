@@ -8,26 +8,76 @@
   <link rel="canonical" href="https://marinadugina.ru/checklist/">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <style>
-    @page{size:A4;margin:16mm} *{box-sizing:border-box} body{margin:0;background:#eee8dd;color:#171815;font:16px/1.55 Arial,sans-serif} a:focus-visible,button:focus-visible{outline:3px solid #9f5c41;outline-offset:3px}.toolbar{max-width:794px;margin:24px auto 0;display:flex;justify-content:space-between;gap:12px}.toolbar a,.toolbar button{border:1px solid #343c30;background:transparent;color:#343c30;padding:11px 16px;text-decoration:none;font:700 13px Arial,sans-serif;cursor:pointer}.toolbar button{background:#343c30;color:#fff}.sheet{max-width:794px;margin:12px auto 24px;background:#f7f3eb;padding:58px 62px;box-shadow:0 8px 32px rgba(30,35,25,.12)} .kicker{margin:0 0 12px;color:#4b5542;font-size:11px;font-weight:700;letter-spacing:.16em} h1{margin:0;color:#343c30;font:700 46px/1.05 Georgia,serif} .intro{max-width:580px;margin:24px 0 40px;font-size:18px} .question{padding:20px 0 24px;border-top:1px solid #cfc8ba} .question h2{margin:0 0 15px;color:#343c30;font:700 22px/1.2 Georgia,serif} .lines{height:72px;background:repeating-linear-gradient(to bottom,transparent 0,transparent 22px,#cfc8ba 23px,transparent 24px)} .closing{margin:36px 0 0;padding:25px;border-left:3px solid #bda46e;background:#eee8dd;font:600 20px/1.4 Georgia,serif}.next{margin:28px 0;padding:20px;border:1px solid #cfc8ba}.next a{color:#343c30;font-weight:700}.notice{font-size:13px;color:#4b5542}.sign{margin:32px 0 0;font-size:14px;color:#4b5542}@media print{body{background:#fff}.toolbar,.next{display:none}.sheet{margin:0;box-shadow:none;max-width:none}}@media(max-width:600px){.toolbar{margin:0;padding:14px}.sheet{margin:0;padding:38px 24px}h1{font-size:36px}}
+    @page{size:A4;margin:16mm}
+    *{box-sizing:border-box}
+    body{margin:0;background:#eee8dd;color:#171815;font:16px/1.55 Arial,sans-serif}
+    a:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid #9f5c41;outline-offset:3px}
+    .toolbar{max-width:794px;margin:24px auto 0;display:flex;justify-content:flex-start;gap:12px}
+    .toolbar a{border:1px solid #343c30;background:transparent;color:#343c30;padding:11px 16px;text-decoration:none;font:700 13px Arial,sans-serif}
+    .sheet{max-width:794px;margin:12px auto 24px;background:#f7f3eb;padding:58px 62px;box-shadow:0 8px 32px rgba(30,35,25,.12)}
+    .kicker{margin:0 0 12px;color:#4b5542;font-size:11px;font-weight:700;letter-spacing:.16em}
+    h1{margin:0;color:#343c30;font:700 46px/1.05 Georgia,serif}
+    .intro{max-width:620px;margin:24px 0 28px;font-size:18px}
+    .mode-actions{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 38px}
+    .action-button{min-height:48px;border:1px solid #343c30;background:transparent;color:#343c30;padding:12px 18px;font:700 14px Arial,sans-serif;cursor:pointer}
+    .action-button--primary{background:#343c30;color:#fff}
+    .question{padding:20px 0 24px;border-top:1px solid #cfc8ba;break-inside:avoid}
+    .question h2{margin:0 0 15px;color:#343c30;font:700 22px/1.2 Georgia,serif}
+    .answer-area{display:none}
+    .editing .answer-area{display:block}
+    .answer-area textarea{display:block;width:100%;min-height:150px;padding:14px 16px;border:1px solid #bdb5a7;border-radius:8px;background:#fffdf8;color:#171815;font:16px/1.55 Arial,sans-serif;resize:vertical}
+    .print-space{display:none}
+    .answer-tools{display:none;align-items:center;justify-content:space-between;gap:18px;margin:10px 0 34px;padding:18px;border:1px solid #cfc8ba;background:#eee8dd}
+    .editing .answer-tools{display:flex}
+    .answer-tools p{margin:0;color:#4b5542;font-size:13px}
+    .delete-button{flex:0 0 auto;border:1px solid #8f5545;background:transparent;color:#6d3b30;padding:10px 14px;font:700 13px Arial,sans-serif;cursor:pointer}
+    .save-status{display:block;margin-top:5px;font-size:12px}
+    .closing{margin:36px 0 0;padding:25px;border-left:3px solid #bda46e;background:#eee8dd;font:600 20px/1.4 Georgia,serif}
+    .next{margin:28px 0;padding:20px;border:1px solid #cfc8ba}
+    .next a{color:#343c30;font-weight:700}
+    .notice{font-size:13px;color:#4b5542}
+    .sign{margin:32px 0 0;font-size:14px;color:#4b5542}
+    @media print{
+      body{background:#fff}
+      .toolbar,.mode-actions,.answer-area,.answer-tools,.next{display:none!important}
+      .sheet{margin:0;padding:0;box-shadow:none;max-width:none}
+      .intro{margin-bottom:28px}
+      .question{padding:15px 0 18px;break-inside:avoid;page-break-inside:avoid}
+      .print-space{display:block;height:76px;background:repeating-linear-gradient(to bottom,transparent 0,transparent 23px,#cfc8ba 24px,transparent 25px)}
+      .closing{break-inside:avoid;page-break-inside:avoid}
+    }
+    @media(max-width:600px){
+      .toolbar{margin:0;padding:14px}
+      .sheet{margin:0;padding:38px 24px}
+      h1{font-size:36px}
+      .mode-actions{display:grid}
+      .action-button{width:100%}
+      .answer-area textarea{min-height:170px}
+      .answer-tools{align-items:stretch;flex-direction:column}
+      .delete-button{width:100%}
+    }
   </style>
 </head>
 <body>
-  <nav class="toolbar" aria-label="Действия с чек-листом"><a href="../index.html">← Вернуться на сайт</a><button type="button" onclick="window.print()">Распечатать</button></nav>
+  <nav class="toolbar" aria-label="Навигация чек-листа"><a href="../index.html">← Вернуться на сайт</a></nav>
   <main class="sheet">
     <p class="kicker">БЕСПЛАТНЫЙ МАТЕРИАЛ</p>
     <h1>Чек-лист «7 вопросов, когда внутри сложно»</h1>
     <p class="intro">Небольшая бережная практика, чтобы остановиться, лучше понять своё состояние и определить первый посильный шаг. Отвечайте в своём темпе — коротко или подробно.</p>
-    <section class="question"><h2>1. Что я сейчас чувствую?</h2><div class="lines"></div></section>
-    <section class="question"><h2>2. Что больше всего забирает силы?</h2><div class="lines"></div></section>
-    <section class="question"><h2>3. Чего мне сейчас не хватает?</h2><div class="lines"></div></section>
-    <section class="question"><h2>4. На что я действительно могу повлиять?</h2><div class="lines"></div></section>
-    <section class="question"><h2>5. Где мне нужна поддержка?</h2><div class="lines"></div></section>
-    <section class="question"><h2>6. Какой маленький шаг я могу сделать сегодня?</h2><div class="lines"></div></section>
-    <section class="question"><h2>7. Что поможет мне почувствовать больше опоры?</h2><div class="lines"></div></section>
+    <div class="mode-actions" aria-label="Выберите способ работы с чек-листом"><button class="action-button action-button--primary" type="button" data-start-checklist>Заполнить на компьютере</button><button class="action-button" type="button" data-print-checklist>Распечатать пустой чек-лист</button></div>
+    <section class="question"><h2>1. Что я сейчас чувствую?</h2><div class="answer-area"><textarea id="checklist-answer-1" data-answer aria-label="Ответ на вопрос 1"></textarea></div><div class="print-space" aria-hidden="true"></div></section>
+    <section class="question"><h2>2. Что больше всего забирает силы?</h2><div class="answer-area"><textarea id="checklist-answer-2" data-answer aria-label="Ответ на вопрос 2"></textarea></div><div class="print-space" aria-hidden="true"></div></section>
+    <section class="question"><h2>3. Чего мне сейчас не хватает?</h2><div class="answer-area"><textarea id="checklist-answer-3" data-answer aria-label="Ответ на вопрос 3"></textarea></div><div class="print-space" aria-hidden="true"></div></section>
+    <section class="question"><h2>4. На что я действительно могу повлиять?</h2><div class="answer-area"><textarea id="checklist-answer-4" data-answer aria-label="Ответ на вопрос 4"></textarea></div><div class="print-space" aria-hidden="true"></div></section>
+    <section class="question"><h2>5. Где мне нужна поддержка?</h2><div class="answer-area"><textarea id="checklist-answer-5" data-answer aria-label="Ответ на вопрос 5"></textarea></div><div class="print-space" aria-hidden="true"></div></section>
+    <section class="question"><h2>6. Какой маленький шаг я могу сделать сегодня?</h2><div class="answer-area"><textarea id="checklist-answer-6" data-answer aria-label="Ответ на вопрос 6"></textarea></div><div class="print-space" aria-hidden="true"></div></section>
+    <section class="question"><h2>7. Что поможет мне почувствовать больше опоры?</h2><div class="answer-area"><textarea id="checklist-answer-7" data-answer aria-label="Ответ на вопрос 7"></textarea></div><div class="print-space" aria-hidden="true"></div></section>
+    <div class="answer-tools"><p>Ваши ответы сохраняются только в этом браузере<span class="save-status" role="status" aria-live="polite" data-save-status>Записи сохраняются автоматически</span></p><button class="delete-button" type="button" data-clear-checklist>Удалить мои ответы</button></div>
     <p class="closing">Необязательно найти все ответы сразу. Иногда достаточно честно заметить, что с вами происходит, и выбрать один небольшой шаг.</p>
     <div class="next"><strong>Хотите продолжить?</strong><p>В дневнике «7 дней заботы о себе» есть семь коротких практик и место для записей, которые сохраняются только в вашем браузере.</p><a href="../journal/index.html">Открыть бесплатный дневник →</a></div>
     <p class="notice">Материал не заменяет медицинскую, психиатрическую или экстренную помощь.</p>
     <p class="sign">Марина Дугина, психолог-консультант.</p>
   </main>
+  <script src="../assets/checklist.js" defer></script>
 </body>
 </html>
