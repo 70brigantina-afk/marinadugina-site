@@ -1,0 +1,45 @@
+.journal-page{background:#f4f0e9}
+.journal-header{padding:22px 0;border-bottom:1px solid var(--line);background:var(--white)}
+.journal-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.back-link{font-size:.9rem;font-weight:800}
+.journal-hero{padding:72px 0 50px}
+.journal-hero-grid{display:grid;grid-template-columns:1fr .78fr;gap:70px;align-items:end}
+.journal-hero h1{max-width:780px}
+.privacy-card{padding:28px;border:1px solid var(--line);border-radius:22px;background:var(--white)}
+.privacy-card strong{display:block;margin-bottom:8px;color:var(--pine)}
+.journal-shell{display:grid;grid-template-columns:280px minmax(0,1fr);gap:28px;padding-bottom:90px}
+.journal-sidebar{position:sticky;top:22px;align-self:start;padding:22px;border:1px solid var(--line);border-radius:22px;background:var(--white)}
+.progress-label{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px;font-size:.84rem;font-weight:800}
+.progress-track{height:9px;overflow:hidden;border-radius:999px;background:var(--paper-2)}
+.progress-bar{width:0;height:100%;background:var(--clay);transition:width .25s ease}
+.day-nav{display:grid;gap:7px;margin:22px 0}
+.day-nav button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:12px;border:1px solid transparent;border-radius:12px;background:transparent;text-align:left;cursor:pointer}
+.day-nav button:hover{background:var(--paper)}
+.day-nav button[aria-pressed="true"]{border-color:var(--pine);background:var(--sage);font-weight:800}
+.day-nav .done-mark{display:grid;width:22px;height:22px;place-items:center;border:1px solid var(--line);border-radius:50%;font-size:.75rem}
+.day-nav button.is-done .done-mark{border-color:var(--pine);background:var(--pine);color:#fff}
+.delete-all{width:100%;padding:10px;border:0;background:transparent;color:#8a4430;font-size:.82rem;font-weight:800;text-decoration:underline;cursor:pointer}
+.journal-content{min-width:0}
+.day-panel{padding:clamp(26px,5vw,58px);border:1px solid var(--line);border-radius:28px;background:var(--white);box-shadow:var(--shadow)}
+.day-panel[hidden]{display:none}
+.day-meta{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:28px}
+.day-number{color:var(--clay);font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.day-time{color:var(--muted);font-size:.82rem}
+.practice{margin:30px 0;padding:28px;border-radius:18px;background:var(--sage)}
+.practice h3{font-size:1.55rem}
+.prompt{margin:26px 0;padding:20px 22px;border-left:4px solid var(--clay);background:var(--paper)}
+.journal-fields{display:grid;gap:22px;margin-top:32px}
+.field label{display:block;margin-bottom:8px;color:var(--pine);font-weight:800}
+.field small{display:block;margin:-3px 0 9px;color:var(--muted)}
+.field textarea{width:100%;min-height:118px;resize:vertical;padding:16px;border:1px solid #bcb8b0;border-radius:14px;background:#fff;font-size:1rem;line-height:1.55}
+.field textarea:focus{border-color:var(--pine)}
+.day-complete{display:flex;align-items:flex-start;gap:12px;margin:28px 0 0;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.day-complete input{width:21px;height:21px;margin:2px 0 0;accent-color:var(--pine)}
+.day-complete label{font-weight:800}
+.day-actions{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
+.save-status{min-height:1.5em;margin:16px 0 0;color:var(--muted);font-size:.82rem;text-align:center}
+.support-note{margin-top:28px;padding:22px;border:1px solid #c89078;border-radius:16px;background:#fff8f3}
+.support-note strong{display:block;color:#743c2b}
+@media(max-width:850px){.journal-hero-grid{grid-template-columns:1fr;gap:26px}.journal-shell{grid-template-columns:1fr}.journal-sidebar{position:static}.day-nav{grid-template-columns:repeat(4,1fr)}.day-nav button{justify-content:center}.day-nav button span:first-child{font-size:.8rem}.day-nav .done-mark{display:none}}
+@media(max-width:560px){.journal-header .wrap{align-items:flex-start}.journal-header .brand{font-size:1.3rem}.journal-hero{padding:50px 0 34px}.journal-shell{gap:16px;padding-bottom:58px}.journal-sidebar{padding:16px}.day-nav{grid-template-columns:repeat(2,1fr)}.day-panel{padding:27px 20px}.day-meta{align-items:flex-start;flex-direction:column;gap:4px}.practice{padding:22px}.day-actions{display:grid;grid-template-columns:1fr 1fr}.day-actions .btn{width:100%;padding-inline:10px}.journal-fields textarea{min-height:140px}}
+@media(prefers-reduced-motion:reduce){.progress-bar{transition:none}}
